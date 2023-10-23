@@ -1,0 +1,227 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel | Tivotal</title>
+
+    <!--font awesome-->
+    <link
+      rel="stylesheet"
+      href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'
+    />
+
+    <!--css file-->
+    <link rel="stylesheet" href={% static 'css/admin_styles.css'%} />
+  </head>
+  <body>
+    <section class="sidebar">
+      <a href="#" class="logo">
+        {% comment %} <i class="fab fa-slack"></i>
+        <span class="text">Admin Panel</span> {% endcomment %}
+      </a>
+
+      <ul class="side-menu top">
+        <li>
+          <a href="{% url 'admin_panel' %}" class="nav-link">
+            <i class="fas fa-border-all"></i>
+            <span class="text">Dashboard</span>
+          </a>
+        </li>
+        <li >
+          <a href="{% url 'admin_order' %}" class="nav-link">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="text">Order</span>
+          </a>
+        </li>
+        <li >
+          <a href="{% url 'admin_products' %}" class="nav-link">
+            <i class="fa-solid fa-list"></i>
+            <span class="text">Products</span>
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'admin_users' %}" class="nav-link">
+            <i class="fa-solid fa-users"></i>
+            <span class="text">Users</span>
+          </a>
+        </li>
+        <li >
+          <a href="{% url 'admin_categories' %}" class="nav-link">
+            <i class="fa-solid fa-table-cells"></i>
+            <span class="text">Categories</span>
+          </a>
+        </li>
+        <li class="active">
+          <a href="{% url 'admin_brands' %}" class="nav-link">
+            <i class="fa-solid fa-code-branch"></i>
+            <span class="text">Brands</span>
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'admin_coupons' %}" class="nav-link">
+            <i class="fa-solid fa-tags"></i>
+            <span class="text">Coupons</span>
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'admin_banners' %}" class="nav-link">
+            <i class="fa-solid fa-tv"></i>
+            <span class="text">Banners</span>
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'admin_payments' %}" class="nav-link">
+            <i class="fa-solid fa-credit-card"></i>
+            <span class="text">Payments</span>
+          </a>
+        </li>
+      </ul>
+
+      <ul class="side-menu">
+        <li>
+          <a href="#">
+            <i class="fas fa-cog"></i>
+            <span class="text">Settings</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="logout">
+            <i class="fas fa-right-from-bracket"></i>
+            <span class="text">Logout</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="content">
+      <nav>
+        <i class="fas  menu-btn"></i>
+        
+        <form action="#">
+          <div class="form-input">
+            <input type="search" placeholder="search..." />
+            <button class="search-btn">
+              <i class="fas fa-search search-icon"></i>
+            </button>
+          </div>
+        </form>
+
+        <input type="checkbox" hidden id="switch-mode" />
+        <label for="switch-mode" class="switch-mode"></label>
+
+        <a href="#" class="notification">
+          <i class="fas fa-bell"></i>
+          <span class="num">28</span>
+        </a>
+
+        <a href="#" class="profile">
+          <img src={% static 'img/profile.png'%} alt="" />
+        </a>
+      </nav>
+
+      <main>
+        <div class="head-title">
+          <div class="left">
+            <h1>Brand</h1>
+            {% comment %} <ul class="breadcrumb">
+              <li>
+                <a href="#">Dashboard</a>
+              </li>
+              <i class="fas fa-chevron-right"></i>
+              <li>
+                <a href="#" class="active">Home</a>
+              </li>
+            </ul> {% endcomment %}
+          </div>
+
+          {% comment %} <a href="#" class="download-btn">
+            <i class="fas fa-cloud-download-alt"></i>
+            <span class="text">Download Report</span>
+          </a> {% endcomment %}
+        </div>
+
+        {% comment %} <div class="box-info">
+          <li>
+            <i class="fas fa-calendar-check"></i>
+            <span class="text">
+              <h3>1.5K</h3>
+              <p>New Orders</p>
+            </span>
+          </li>
+          <li>
+            <i class="fas fa-people-group"></i>
+            <span class="text">
+              <h3>1M</h3>
+              <p>Clients</p>
+            </span>
+          </li>
+          <li>
+            <i class="fas fa-dollar-sign"></i>
+            <span class="text">
+              <h3>$900k</h3>
+              <p>Turnover</p>
+            </span>
+          </li>
+        </div> {% endcomment %}
+
+        <div class="table-data">
+            <form class="category-form">
+                <label for="category-name">Brand Name:</label>
+                <input type="text" id="category-name" name="category-name" required><br><br>
+            
+                <label for="category-description">Brand Description:</label><br>
+                <textarea id="category-description" name="category-description" rows="4" cols="50" required></textarea><br><br>
+            
+                <button type="submit" class="add-category-button">Save Changes</button>
+              </form>
+            </div>
+  
+          {% comment %} <div class="todo">
+            <div class="head">
+              <h3>Todos</h3>
+              <i class="fas fa-plus"></i>
+              <i class="fas fa-filter"></i>
+            </div>
+
+            <ul class="todo-list">
+              <li class="not-completed">
+                <p>Todo List</p>
+                <i class="fas fa-ellipsis-vertical"></i>
+              </li>
+              <li class="not-completed">
+                <p>Todo List</p>
+                <i class="fas fa-ellipsis-vertical"></i>
+              </li>
+              <li class="completed">
+                <p>Todo List</p>
+                <i class="fas fa-ellipsis-vertical"></i>
+              </li>
+              <li class="completed">
+                <p>Todo List</p>
+                <i class="fas fa-ellipsis-vertical"></i>
+              </li>
+              <li class="completed">
+                <p>Todo List</p>
+                <i class="fas fa-ellipsis-vertical"></i>
+              </li>
+            </ul>
+          </div> {% endcomment %}
+          
+        </div>
+      </main>
+    </section>
+
+    <script src={% static 'js/admin_javascript.js'%}></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+

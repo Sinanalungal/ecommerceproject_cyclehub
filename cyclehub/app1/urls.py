@@ -1,0 +1,30 @@
+from django.urls import path
+from . import views
+
+urlpatterns=[
+    path('',views.homepage,name='homepage'),
+    path('shop',views.shop,name='shop'),
+    path('contact',views.contact,name='contact'),
+    path('about',views.about,name='about'),
+    path('admin_panel',views.admin_panel,name='admin_panel'),
+    path('cart',views.cart,name='cart'),
+    path('checkout',views.checkout,name='checkout'),
+    path('wishlist',views.wishlist,name='wishlist'),
+    path('product_detail',views.detail,name='detail'),
+    path('products',views.admin_products,name='admin_products'),
+    path('orders',views.admin_order,name='admin_order'),
+    path('add_products',views.add_products,name='add_products'),
+    path('edit_products',views.edit_products,name='edit_products'),
+    path('admin_users',views.admin_users,name='admin_users'),
+    path('admin_categories',views.admin_categories,name='admin_categories'),
+    path('add_categories',views.add_categories,name='add_categories'),
+    path('edit_categories',views.edit_categories,name='edit_categories'),
+    path('admin_brands',views.admin_brands,name='admin_brands'),
+    path('add_brands',views.add_brands,name='add_brands'),
+    path('edit_brands',views.edit_brands,name='edit_brands'),
+    path('admin_coupons',views.admin_coupons,name='admin_coupons'),
+    path('add_coupons',views.add_coupons,name='add_coupons'),
+    path('admin_banners',views.admin_banners,name='admin_banners'),
+    path('add_banners',views.add_banners,name='add_banners'),
+    path('admin_payments',views.admin_payments,name='admin_payments'),
+]
